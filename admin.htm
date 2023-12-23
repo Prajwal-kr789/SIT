@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            background-color: orangered;
+            height: 35px;
+            width: 125px;
+            border: 2px solid transparent;
+            border-radius: 39px;
+        }
+        #hlo{
+            margin-left: 625px;
+            margin-top: 225px;
+        }
+    </style>
+</head>
+<body>
+    <div id="hlo">
+    <h4>Want to fetch data?</h4>
+    <button id="fetchData">FETCH</button>
+</div>
+</body>
+</html>
+<script>
+   async function fetchData() {
+    const name = 'Prajwal K R';
+    const from = 'Davangere';
+    const to = 'Shira';
+    const payment = 'UPI';
+    const paymentDone = true;
+
+    const url = `http://localhost:3000/getData?name=${name}&from=${from}&to=${to}&payment=${payment}&paymentDone=${paymentDone}`;
+
+    console.log('Fetching data from:', url);
+
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        console.log('Data fetched successfully:', data);
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', fetchData);
+
+</script>

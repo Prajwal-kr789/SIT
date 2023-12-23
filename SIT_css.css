@@ -1,0 +1,170 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+/* NAVBAR */
+header {
+    background-color: #333;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    height: 35px;
+    /* position: fixed; */
+    align-items: center;
+}
+#btn{
+   background-color: #ffd700;
+   border: 2px solid transparent;
+   border-radius: 12px;
+   height: 35px;
+   width: 85px;
+}
+#btn:hover{
+    background-color: #f8d92d;
+    cursor: pointer;
+}
+.logo img {
+    max-width: 80px;
+    border-radius: 50%;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav li {
+    margin-right: 70px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+}
+nav button {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ffd700;
+}
+/* -------------------------------------------------- */
+/* FORM OF USER */
+#container{
+    background-color: rgb(103, 102, 102);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    margin-left: 80vmin;
+    height: 220px;
+    margin-top: 105px;
+    font-weight: bold;
+}
+#container1{
+    margin-left: 25px;
+}
+.Container_input{
+    width: 250px;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 14px;
+    outline: none;
+
+}
+#Container_label{
+    display: block;
+    margin-bottom: 8px;
+}
+#Container_button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 22px;
+    margin-left: 62px;
+}
+.Select_options{
+    height: 30px;
+    width: 105px;
+    border-radius: 12px;
+    background-color: rgb(48, 46, 46);
+    color: white;
+    outline: none;
+}
+#Payment_option{
+    margin-top: 12px;
+}
+#Container_button:hover {
+    background-color: #45a049;
+}
+
+#qrcode {
+    /* margin-top: -20px; */
+    text-align: center;
+    margin-bottom: 125px;
+    margin-left: 345px;
+}
+/* }-------------------------------------------- */
+/* FORM OF COLLECTOR */
+#Collector{
+    background-color: #7cccec;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin-left: 95vmin;
+    margin-top: 85px;
+}
+#Collector1{
+    margin-left: 25px;
+}
+.Collector_input{
+    width: 250px;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+#Collector_label{
+    display: block;
+    margin-bottom: 8px;
+}
+#Collector_button {
+    background-color:#102f3b ;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 60px;
+}
+
+#Collector_button:hover {
+    background-color: #45a049;
+}
+
+#qrcode {
+    margin-top: 20px;
+    text-align: center;
+    margin-left: 27px;
+}
+/* ---------------------------------------- */
+
+
+#switchText {
+    margin-top: 15px;
+    font-size: 14px;
+}

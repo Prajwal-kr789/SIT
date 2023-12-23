@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Page</title>
+    <link rel="stylesheet" href="SIT_css.css">
+</head>
+<body>
+
+        <div id="container" style="display: block;">
+            <div id="container1">
+                <label id="Container_label" for="name">Name:</label>
+                <input type="text" class="Container_input" id="name" placeholder="Enter your name...">
+            <label for="">From:</label> 
+                <select name="" class="Select_options" id="From_Options">
+                    <option value="" selected>Select</option>
+                    <option value="Davangere">Davangere</option>
+                    <option value="Chitradurga">Chitradurga</option>
+                    <option value="Shira">Shira</option>
+                    <option value="Tumakuru">Tumakuru</option>
+                    <option value="Huballi">Huballi</option>
+                </select>
+                <label for="">To:</label> 
+                <select name="" class="Select_options" id="To_Options">
+                    <option value="" selected>Select</option>
+                    <option value="Davangere">Davangere</option>
+                    <option value="Chitradurga">Chitradurga</option>
+                    <option value="Shira">Shira</option>
+                    <option value="Tumakuru">Tumakuru</option>
+                    <option value="Huballi">Huballi</option>
+                </select>
+                <label for="">Payment option</label>
+                <select name="" class="Select_options" id="Payment_option">
+                    <option value="" selected>Select</option>
+                    <option value="UPI">UPI</option>
+                    <option value="UPI_ID">UPI ID</option>
+                </select>
+                <br>
+                <div id="Payment_done" style="display: none;">Payment Done</div>
+                <button id="Container_button" onclick="generateQRCode()">Generate QR Code</button>
+        </div>
+        <div id="qrcode"></div>
+
+</body>
+</html>
+<script>
+   async function generateQRCode() {
+    const name = document.getElementById('name').value;
+    const To_Options = document.getElementById('To_Options').value;
+    const Payment_option = document.getElementById('Payment_option').value;
+    const Payment_done = document.getElementById('Payment_done'); // Get the element, not its value
+    const From_Options = document.getElementById('From_Options').value;
+
+    let Payment = true;
+    if (Payment) {
+        Payment_done.style.display = 'block';
+    } else {
+        Payment_done.style.display = 'none';
+        alert("Payment not Done...")
+        return
+    }
+    const combinedValues = `Name: ${name}\n From: ${From_Options}\n To: ${To_Options}\n Payment: ${Payment_option}\n Payment Done: ${Payment?"Yes":"No"}`;
+
+    const qrcodeDiv = document.getElementById('qrcode');
+    qrcodeDiv.innerHTML = '';
+
+    const qrcode = new QRCode(qrcodeDiv, {
+        text: combinedValues,
+        width: 256,
+        height: 256
+    });
+
+
+    const data = {
+    name,
+    from: From_Options,
+    to: To_Options,
+    paymentOption: Payment_option,
+    paymentDone: Payment,
+  };
+
+  try {
+    const response = await fetch('http://localhost:3000/saveData', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (response.ok) {
+      console.log('Data saved successfully');
+    } else {
+      console.error('Failed to save data');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+  }
+    
+}
+</script>
+
+<!-- <script src="SIT_JS.js"></script> -->
+<script src="qrcode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
